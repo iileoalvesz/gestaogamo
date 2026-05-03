@@ -142,8 +142,8 @@ class SensorReading(models.Model):
         verbose_name_plural = "Leituras"
         ordering = ["sensor", "recorded_at"]
         indexes = [
-            models.Index(fields=["sensor", "recorded_at"]),
-            models.Index(fields=["import_batch"]),
+            models.Index(fields=["sensor", "recorded_at"], name="sensors_sen_sensor__idx"),
+            models.Index(fields=["import_batch"], name="sensors_sen_import__idx"),
         ]
 
     def __str__(self):
