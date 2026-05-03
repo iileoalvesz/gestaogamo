@@ -35,3 +35,6 @@ Thumbs.db
 
 # Arquivos locais de dados
 *.sqlite3
+
+# Env de produção (nunca commitar)
+.env

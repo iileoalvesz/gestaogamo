@@ -1,4 +1,5 @@
 import os
+import sys
 from django.apps import AppConfig
 
 
@@ -9,8 +10,11 @@ class SensorsConfig(AppConfig):
     default = True
 
     def ready(self):
-        # Evita dupla inicialização no dev server (reloader fork)
-        if os.environ.get("RUN_MAIN") != "true":
-            return
+        # Nunca inicia o scheduler em management commands (migrate, collectstatic, etc.)
+        if "manage.py" in sys.argv[0]:
+            # Dev server: inicia apenas no processo filho (evita dupla inicialização)
+            if os.environ.get("RUN_MAIN") != "true":
+                return
+        # Gunicorn / produção: inicia normalmente
         from .scheduler import start_scheduler
         start_scheduler()
