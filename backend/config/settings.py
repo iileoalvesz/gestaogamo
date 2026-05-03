@@ -118,8 +118,6 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
     "http://localhost:5173,http://127.0.0.1:5173",
 ).split(",")
 
-USE_X_FORWARDED_HOST = True
-
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},

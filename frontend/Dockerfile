@@ -1,4 +1,4 @@
-# ── Stage 1: Build do React ──────────────────────────────────────────────────
+# Stage 1: Build do React
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -9,12 +9,10 @@ RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build
 
-# ── Stage 2: Nginx servindo o build estático ─────────────────────────────────
-FROM nginx:alpine
+# Stage 2: Copia o build para o volume compartilhado com nginx
+FROM alpine:latest
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "cp -rf /app/dist/. /usr/share/nginx/html/ && echo 'Frontend copiado com sucesso'"]
