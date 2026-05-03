@@ -21,8 +21,8 @@ services:
       - sqlite_data:/data
       - media_data:/app/media
       - static_data:/app/staticfiles
-    ports:
-      - "8001:8000"
+    expose:
+      - "8000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/auth/login/"]
       interval: 30s
