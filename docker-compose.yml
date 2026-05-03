@@ -9,7 +9,7 @@ services:
       DB_PATH: /data/db.sqlite3
       STATIC_ROOT: /app/staticfiles
       MEDIA_ROOT: /app/media
-      SECRET_KEY: "troque-esta-chave-por-uma-longa-e-aleatoria-em-producao"
+      SECRET_KEY: ${SECRET_KEY}
       DEBUG: "False"
       ALLOWED_HOSTS: "31.97.241.49,localhost"
       CORS_ALLOWED_ORIGINS: "http://31.97.241.49:8080"
