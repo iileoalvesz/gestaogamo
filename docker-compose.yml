@@ -18,8 +18,8 @@ services:
       - SECRET_KEY=gamon-secret-key-mude-antes-de-producao-real-2024
       - DEBUG=False
       - ALLOWED_HOSTS=31.97.241.49,localhost
-      - CORS_ALLOWED_ORIGINS=http://31.97.241.49:9000
-      - CSRF_TRUSTED_ORIGINS=http://31.97.241.49:9000
+      - CORS_ALLOWED_ORIGINS=http://31.97.241.49:8023
+      - CSRF_TRUSTED_ORIGINS=http://31.97.241.49:8023
       - DJANGO_SUPERUSER_USERNAME=admin
       - DJANGO_SUPERUSER_EMAIL=admin@gamon.com
       - DJANGO_SUPERUSER_PASSWORD=Gamon@2024
@@ -43,7 +43,7 @@ services:
       dockerfile: Dockerfile
     container_name: gestaogamon_nginx
     ports:
-      - "9000:80"
+      - "8023:80"
     volumes:
       - frontend_build:/usr/share/nginx/html:ro
       - static_volume:/app/staticfiles:ro
