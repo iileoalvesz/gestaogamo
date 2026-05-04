@@ -12,9 +12,9 @@ services:
       - MEDIA_ROOT=/app/media
       - SECRET_KEY=gamon-secret-key-mude-antes-de-producao-real-2024
       - DEBUG=False
-      - ALLOWED_HOSTS=31.97.241.49,localhost
-      - CORS_ALLOWED_ORIGINS=http://31.97.241.49:8023
-      - CSRF_TRUSTED_ORIGINS=http://31.97.241.49:8023
+      - ALLOWED_HOSTS=srv1176996.hstgr.cloud,31.97.241.49,localhost
+      - CORS_ALLOWED_ORIGINS=http://srv1176996.hstgr.cloud:8023
+      - CSRF_TRUSTED_ORIGINS=http://srv1176996.hstgr.cloud:8023
       - DJANGO_SUPERUSER_USERNAME=admin
       - DJANGO_SUPERUSER_EMAIL=admin@gamon.com
       - DJANGO_SUPERUSER_PASSWORD=Gamon@2024
